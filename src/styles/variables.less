@@ -1,0 +1,24 @@
+/* 全局主题变量 */
+@main-bgColor: gray;
+@main-fontSize: 16px;
+/* 侧边菜单栏 */
+@sidebar-width: 200px;
+@sidebar-textColor: #bfcbd9;
+@sidebar-activeTextColor: #409EFF;
+@sidebar-bgColor: #304156;
+@sidebar-subMune-bgColor: #1f2d3d;
+@sidebar-subMune-hoverBgColor: #001528;
+/* 顶栏设置栏 */
+@navbar-setting-height: 50px;
+/* 面包屑 */
+@navbar-breadcrumb-height: 34px;
+@navbar-height: @navbar-breadcrumb-height + @navbar-setting-height;
+/* 主内容区域 */
+@appMain-height: ~"calc(100vh - (@{navbar-setting-height} + @{navbar-breadcrumb-height}))";
+@appMain-bgColor: gray;
+
+:export {
+  sidebar-bgColor: @sidebar-bgColor;
+  sidebar-textColor: @sidebar-textColor;
+  sidebar-activeTextColor: @sidebar-activeTextColor;
+}

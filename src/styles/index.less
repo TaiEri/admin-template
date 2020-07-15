@@ -1,0 +1,105 @@
+@import './element-ui.less';
+@import './mixin.less';
+@import './variables.less';
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  // -moz-osx-font-smoothing: grayscale;
+  // -webkit-font-smoothing: antialiased;
+  // text-rendering: optimizeLegibility;
+  // font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+#app {
+  height: 100%;
+
+  .app-wrapper {
+    .clearfix();
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    // 菜单栏
+    .sidebar-container {
+      height: 100%;
+      width: @sidebar-width  !important;
+      background-color: @sidebar-bgColor;
+      position: fixed;
+      font-size: 0px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1001;
+      overflow: hidden;
+
+      .el-menu {
+        .svg-icon {
+          margin-right: 16px;
+        }
+
+        .sub-el-icon {
+          margin-right: 12px;
+          margin-left: -2px;
+        }
+
+        .el-menu-item,.el-submenu {
+          min-width: @sidebar-width  !important;
+          // background-color: @sidebar-bgColor  !important;
+        }
+        .el-submenu .el-menu-item {
+          min-width: @sidebar-width !important;
+          background-color: @sidebar-subMune-bgColor !important;
+    
+          &:hover {
+            background-color: @sidebar-subMune-hoverBgColor !important;
+          }
+        }
+      }
+
+      .scrollbar-wrapper {
+        overflow-x: hidden !important;
+      }
+
+      .el-scrollbar__bar.is-vertical {
+        right: 0px;
+      }
+
+      .el-scrollbar {
+        height: calc(100% - 50px);
+      }
+    }
+
+    .main-container {
+      min-height: 100%;
+      // width: calc(100vw - @sidebar-width);
+      margin-left: @sidebar-width;
+      position: relative;
+      .app-main {
+        min-height: @appMain-height;
+        width: 100%;
+        margin-top: @navbar-height;
+        position: relative;
+        overflow: hidden;
+        background-color: @appMain-bgColor;
+        .app-container {
+          padding: 20px;
+        }
+      }
+    }
+  }
+}

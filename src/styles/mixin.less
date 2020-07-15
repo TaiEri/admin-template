@@ -1,0 +1,75 @@
+/* 全局混入方法 */
+
+// 盒子宽高
+.size(@w, @h) {
+  width: @w;
+  height: @h;
+}
+
+// 弹性居中
+.flexCenter() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// 禁止换行, 文本溢出省略号显示 (一行)
+.ellipsis() {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+// 2x 3x 背景图片
+.bg-image(@url) {
+  background-image: url("@url + '@2x.png'");
+
+  @media (-webkit-min-device-pixel-ratio: 3),
+  (min-device-pixel-ratio: 3) {
+    background-image: url("@url + '@3x.png'");
+  }
+}
+
+// 设置图片
+.fullscreen-bg(@url) {
+  background-image: url(@url);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+// 清除浮动
+.clearfix() {
+  *zoom: 1;
+
+  &:after {
+    display: block;
+    clear: both;
+    content: '';
+    visibility: hidden;
+    height: 0;
+  }
+}
+
+// 禁止文本被选择
+.user-select() {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// 模糊
+.blur(@blur: 10px) {
+  filter: blur(@blur);
+  -webkit-filter: blur(@blur);
+  -moz-filter: blur(@blur);
+  -o-filter: blur(@blur);
+  -ms-filter: blur(@blur);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='@{blur}');
+  *zoom: 1;
+}
